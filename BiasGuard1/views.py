@@ -5,4 +5,7 @@ from django.http import HttpResponse
 def home(request):
     #return HttpResponse('<h1>Hola</h1>')
     return render(request, 'home.html')
+
+def ofertaLaboral(request):
+    return render(request, 'oferta.html')
  

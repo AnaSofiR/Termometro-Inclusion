@@ -21,4 +21,5 @@ from BiasGuard1 import views as biasguardViews
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',biasguardViews.home),
+    path('oferta/', biasguardViews.ofertaLaboral),
 ]
