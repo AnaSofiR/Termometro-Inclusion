@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../static/css/login.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <scrip src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .titulo-principal {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 2rem 0;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="bg-blue-900 text-white">
+        <div class="flex flex-wrap justify-between items-center mx-auto max-w-full p-4">
+            <a href="#" class="flex items-center">
+                <img src="https://www.magneto365.com/wp-content/uploads/2023/06/magneto-b2b-white.svg" class="h-8 mr-3" alt="Magneto Logo" />
+            </a>
+            <div class="flex items-center">
+                <ul class="flex flex-row font-medium mt-0 mr-6 space-x-8 text-sm">
+                    <li>
+                        <a href="{% url 'inicioEmpresa' %}" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'oferta' %}" class="text-gray-900 dark:text-white hover:underline">Crear oferta</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'revision' %}" class="text-gray-900 dark:text-white hover:underline">En revisión</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-900 dark:text-white hover:underline">Publicadas</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-900 dark:text-white hover:underline">Análisis</a>
+                    </li>
+                </ul>
+            </div>
+            
+        <!-- Breadcrumb -->
+        <nav class="flex justify-between" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center mb-3 sm:mb-0">
+                <div class="flex items-center">
+                    <button id="dropdownDatabase" data-dropdown-toggle="dropdown-database" class="inline-flex items-center px-3 py-2 text-sm font-normal text-center text-white bg-blue-900 rounded-lg hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-100 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white dark:focus:ring-gray-700">
+            </svg>Cuenta<svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+            </svg></button>
+                <div id="dropdown-database" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                    <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Perfil</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Configuración</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Salir</a>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </li>
+            </ol>
+        </nav>  
+        </div>
+    </nav>
+</body>
+</html>

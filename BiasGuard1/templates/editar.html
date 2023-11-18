@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .description .highlight{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Descripción de la vacante:
+    </h1>
+        <p id="description" class="description" contenteditable="True">
+            {% for palabra in offer.description.split %}
+                {% if palabra in genero %}
+                    <span class="highlight">{{ palabra }}</span>  
+                {% else %}    
+                    {{palabra}}
+                {% endif %}    
+            {% endfor %}     
+        </p>
+
+        <p>
+            {{ offer.title }}
+        </p>
+
+        <p>
+            {{ offer.salary }}
+        </p>
+        
+</body>
+</html>

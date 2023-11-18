@@ -15,11 +15,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from BiasGuard1 import views as biasguardViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',biasguardViews.home),
-    path('oferta/', biasguardViews.ofertaLaboral),
+    #path('',biasguardViews.home),
+    path('oferta/', biasguardViews.oferta, name='oferta'),
+    path('revision/', biasguardViews.revision, name='revision'),
+    path('analitica/', include('analitica.urls')),
+    path('editar/<int:id_offer>/<str:palabras_genero>/<str:palabras_edad>/<str:palabras_discapacidad>/', biasguardViews.editar, name='editar'),
+    path('', include('analitica.urls')),
+    path('inicioEmpresa/', biasguardViews.inicioEmpresa, name='inicioEmpresa'),
+    path('empleos/', biasguardViews.empleos, name='empleos')
 ]

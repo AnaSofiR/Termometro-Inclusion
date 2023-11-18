@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-family: 'Poppins', sans-serif;
+            font-size: 62.5%;
+
+        }
+        .container{
+            background-color: #c4c4c4;
+        }
+        header{
+            top: 30%;
+            position: absolute;
+            bottom: 30%;
+            padding: 0 50px;
+        }
+        header img{
+            height: 140px;
+        }
+        header h2{
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        header p{
+            font-size: 1.7rem;
+            margin-bottom: 20px;
+        }
+        header .buttons{
+            display: flex;
+        }
+        header .buttons .btn{
+            padding: 1rem 2.5rem;
+            width: 140px;
+            height: 40px;
+            font-weight: 500;
+            font-size: 12px;
+            background-color: #13223a;
+            margin-left: 10px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+        }
+        header .buttons .btn:hover{
+            background-color: #324353;
+        }
+        .container .emp{
+            position: absolute;
+            height: 600px;
+            width: 550px;
+            right: 7%;
+            bottom: 0;
+            z-index: 999;
+        }
+        .container .fondo{
+            position: absolute;
+            height: 550px;
+            width: 550px;
+            right: 9%;
+            bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://static.magneto365.com/lib/assets/cef805bdf449b93b.svg" alt="">
+            <h2>BIENVENIDO</h2>
+            <p>Software de atracción y selección de talentos para emprendimientos, <br> negocios, pequeñas y medianas empresas.</p>
+            <div class="buttons">
+                <a href="{% url 'loginEmpresa' %}" class="btn">Soy empresa</a>
+                <a href="{% url 'loginEmpleo' %}" class="btn">Busco empleo</a>
+            </div>
+        </header>
+        <img class="emp" src="{% static 'img/EMP.png' %}" alt="">
+        <img class="fondo" src="{% static 'img/fondo.png' %}" alt="">
+    </div>
+</body>
+</html>
