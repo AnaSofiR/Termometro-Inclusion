@@ -24,8 +24,9 @@ urlpatterns = [
     path('oferta/', biasguardViews.oferta, name='oferta'),
     path('revision/', biasguardViews.revision, name='revision'),
     path('analitica/', include('analitica.urls')),
-    path('editar/<int:id_offer>/<str:palabras_genero>/<str:palabras_edad>/<str:palabras_discapacidad>/', biasguardViews.editar, name='editar'),
+    path('editar/<int:id_offer>/<str:palabras_genero>/<str:palabras_edad>/', biasguardViews.editar, name='editar'),
     path('', include('analitica.urls')),
     path('inicioEmpresa/', biasguardViews.inicioEmpresa, name='inicioEmpresa'),
-    path('empleos/', biasguardViews.empleos, name='empleos')
+    path('empleos/', biasguardViews.empleos, name='empleos'),
+    path('publicadas/', biasguardViews.publicadas, name='publicadas'),
 ]

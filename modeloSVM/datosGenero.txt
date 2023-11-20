@@ -1,0 +1,100 @@
+Se busca secretaria para oficina, preferiblemente mujer, con habilidades organizativas y capacidad para asistir a altos ejecutivos
+Empresa de diseño busca diseñador gráfico masculino, para un ambiente creativo y enérgico
+Se necesita enfermera para residencia de ancianos, preferiblemente mujer, con experiencia en el cuidado de personas mayores
+Compañía de tecnología busca programador junior, preferentemente hombre, con habilidades en lenguajes de programación específicos
+Se busca vendedora para tienda de ropa femenina, con pasión por la moda y habilidades para la atención al cliente
+Empresa de construcción busca obrero, preferiblemente hombre, para realizar trabajos de carga y descarga
+Se necesita maestra de preescolar para jardín de infantes, con habilidades para cuidar y educar a los niños pequeños
+Fábrica busca operario, preferiblemente hombre, para el manejo de maquinaria pesada
+Agencia de marketing busca ejecutivo de cuentas femenino, para gestionar estrategias publicitarias
+Se busca chef para restaurante de alta cocina, preferiblemente hombre, con experiencia en cocina internacional
+Startup busca gerente de proyectos, preferentemente mujer, para liderar equipos multidisciplinarios
+Se necesita conductor de transporte de carga, preferiblemente hombre, con licencia de manejo de vehículos pesados
+Estudio de abogados busca asistente legal femenina, para apoyar en labores administrativas y legales
+Agencia de viajes busca agente de reservas masculino, para manejar reservas y atención al cliente
+Se busca desarrollador web, preferiblemente hombre, con experiencia en lenguajes de programación avanzados
+Gimnasio busca instructor de pesas, preferiblemente hombre, para entrenamiento de fuerza y acondicionamiento físico
+Se necesita recepcionista para hotel, preferiblemente mujer, con habilidades de atención al cliente y gestión de reservas
+Agencia de publicidad busca diseñadora gráfica, para trabajar en el diseño de campañas publicitarias creativas
+Se busca técnico en reparación de electrodomésticos, preferiblemente hombre, para realizar reparaciones a domicilio
+Empresa de consultoría busca analista financiera, preferiblemente mujer, para análisis y reportes financieros
+Se necesita barman para club nocturno, preferiblemente hombre, con experiencia en coctelería y atención al cliente
+Clínica busca ginecólogo, preferiblemente mujer, con experiencia en salud femenina
+Startup busca desarrolladora de aplicaciones móviles, para desarrollar aplicaciones innovadoras
+Empresa de tecnología busca ingeniero de software, preferiblemente hombre, para liderar proyectos de desarrollo
+Se busca esteticista para spa, preferiblemente mujer, con experiencia en tratamientos de belleza
+Empresa de logística busca repartidor, preferiblemente hombre, para realizar entregas a domicilio
+Estudio de diseño busca diseñadora de modas, para crear prendas y colecciones únicas
+Se necesita técnica en radiología para clínica, preferiblemente mujer, con experiencia en imágenes médicas
+Agencia de publicidad busca redactor creativo, para escribir contenido persuasivo y atractivo
+Empresa de alimentos busca chef pastelera, preferiblemente mujer, con habilidades en repostería y decoración de pasteles
+Se busca programador senior con experiencia y habilidades en liderazgo para un equipo de desarrollo. Preferiblemente hombre
+Empresa de tecnología busca ingeniero para liderar proyectos de infraestructura. Se prefiere candidato masculino con experiencia en proyectos similares
+Se necesita asistente administrativa con habilidades organizativas para trabajar directamente con la gerencia. Preferiblemente mujer
+Startup busca director de marketing para liderar estrategias publicitarias. Se prefiere candidato masculino con experiencia comprobada en el campo
+Se busca enfermera para cuidado de pacientes hospitalizados. Preferiblemente mujer con experiencia en cuidados intensivos
+Agencia de publicidad busca creativa gráfica para diseño de campañas. Se prefiere candidata femenina con visión innovadora
+Startup busca desarrollador de software para crear aplicaciones de vanguardia. Se prefiere candidato masculino con habilidades avanzadas en programación
+Se necesita secretaria para apoyo administrativo. Preferiblemente mujer con conocimientos en gestión de oficina
+Empresa de moda busca diseñador de ropa urbana. Se prefiere candidato masculino con experiencia en diseño de moda contemporánea
+Se busca chef para restaurante de alta cocina. Preferiblemente hombre con habilidades culinarias excepcionales
+Se necesita secretaria para apoyo administrativo. Preferiblemente mujer con conocimientos en gestión de oficina
+Se busca programador senior con experiencia y habilidades en liderazgo para un equipo de desarrollo. Preferiblemente hombre
+Empresa de tecnología busca ingeniero para liderar proyectos de infraestructura. Se prefiere candidato masculino con experiencia en proyectos similares
+Startup busca director de marketing para liderar estrategias publicitarias. Se prefiere candidato masculino con experiencia comprobada en el campo
+Se busca enfermera para cuidado de pacientes hospitalizados. Preferiblemente mujer con experiencia en cuidados intensivos
+Agencia de publicidad busca creativa gráfica para diseño de campañas. Se prefiere candidata femenina con visión innovadora
+Startup busca desarrollador de software para crear aplicaciones de vanguardia. Se prefiere candidato masculino con habilidades avanzadas en programación
+Se necesita asistente administrativa con habilidades organizativas para trabajar directamente con la gerencia. Preferiblemente mujer
+Startup busca gerente de proyectos, preferentemente mujer, para liderar equipos multidisciplinarios
+Se necesita conductor de transporte de carga, preferiblemente hombre, con licencia de manejo de vehículos pesados
+Empresa de consultoría busca analista financiera, preferiblemente mujer, para análisis y reportes financieros
+Empresa de alimentos busca chef pastelera, preferiblemente mujer, con habilidades en repostería y decoración de pasteles
+Se necesita técnica en radiología para clínica, preferiblemente mujer, con experiencia en imágenes médicas
+Empresa de logística busca repartidor, preferiblemente hombre, para realizar entregas a domicilio
+Empresa de eventos busca coordinador de eventos, preferentemente hombre, para planificar y ejecutar eventos
+Startup busca desarrolladora de aplicaciones móviles, para desarrollar aplicaciones innovadoras
+Compañía de tecnología busca ejecutivo de cuentas femenino, para gestionar estrategias publicitarias
+Gimnasio busca instructor de pesas, preferiblemente hombre, para entrenamiento de fuerza y acondicionamiento físico
+Startup busca gerente de proyectos, preferentemente mujer, para liderar equipos multidisciplinarios
+Estudio de diseño busca diseñadora de modas, para crear prendas y colecciones únicas
+Laboratorio busca ginecólogo, preferiblemente mujer, con experiencia en salud femenina
+Agencia de publicidad busca agente de reservas masculino, para manejar reservas y atención al cliente
+Empresa de transporte busca repartidor, preferiblemente hombre, para realizar entregas a domicilio
+Empresa de tecnología busca ingeniero de software, preferiblemente hombre, para liderar proyectos de desarrollo
+Centro de salud mental busca psicólogo, preferiblemente mujer, con experiencia en terapia cognitivo-conductual
+Banco busca asistente legal femenina, para apoyar en labores administrativas y legales
+Se busca chef para restaurante de alta cocina. Preferiblemente hombre con habilidades culinarias excepcionales
+Agencia de publicidad busca diseñadora gráfica, para trabajar en el diseño de campañas publicitarias creativas
+Startup busca desarrollador de software para crear aplicaciones de vanguardia. Se prefiere candidato masculino con habilidades avanzadas en programación
+Empresa de manufactura busca obrero, preferiblemente hombre, para realizar trabajos de carga y descarga
+Startup busca ingeniero para liderar proyectos de infraestructura. Se prefiere candidato masculino con experiencia en proyectos similares
+Agencia de viajes busca agente de reservas masculino, para manejar reservas y atención al cliente
+Se busca esteticista para spa, preferiblemente mujer, con experiencia en tratamientos de belleza
+Se busca vendedora para tienda de ropa femenina, con pasión por la moda y habilidades para la atención al client
+Estudio de diseño busca diseñadora de modas, para crear prendas y colecciones únicas
+Empresa de consultoría busca analista financiera, preferiblemente mujer, para análisis y reportes financieros
+Se busca chef para restaurante de alta cocina. Preferiblemente hombre con habilidades culinarias excepcionales
+Se busca desarrollador web, preferiblemente hombre, con experiencia en lenguajes de programación avanzados
+Se necesita recepcionista para hotel, preferiblemente mujer, con habilidades de atención al cliente y gestión de reservas
+Empresa de moda busca diseñador de ropa urbana. Se prefiere candidato masculino con experiencia en diseño de moda contemporánea
+Se necesita técnico en reparación de electrodomésticos, preferiblemente hombre, para realizar reparaciones a domicilio
+Startup busca director de marketing para liderar estrategias publicitarias. Se prefiere candidato masculino con experiencia comprobada en el campo
+Empresa de tecnología busca ingeniero de software, preferiblemente hombre, para liderar proyectos de desarrollo
+Estudio de abogados busca asistente legal femenina, para apoyar en labores administrativas y legales
+Se necesita barman para club nocturno, preferiblemente hombre, con experiencia en coctelería y atención al cliente
+Se necesita enfermera para residencia de ancianos, preferiblemente mujer, con experiencia en el cuidado de personas mayores
+Agencia de marketing busca ejecutivo de cuentas femenino, para gestionar estrategias publicitarias
+Empresa de logística busca repartidor, preferiblemente hombre, para realizar entregas a domicilio
+Startup busca gerente de proyectos, preferentemente mujer, para liderar equipos multidisciplinarios
+Agencia de publicidad busca diseñadora gráfica, para trabajar en el diseño de campañas publicitarias creativas
+Empresa de tecnología busca ingeniero para liderar proyectos de infraestructura. Se prefiere candidato masculino con experiencia en proyectos similares
+Se necesita asistente administrativa con habilidades organizativas para trabajar directamente con la gerencia. Preferiblemente mujer
+Startup busca director de marketing para liderar estrategias publicitarias. Se prefiere candidato masculino con experiencia comprobada en el campo
+Se busca enfermera para cuidado de pacientes hospitalizados. Preferiblemente mujer con experiencia en cuidados intensivos
+Agencia de publicidad busca creativa gráfica para diseño de campañas. Se prefiere candidata femenina con visión innovadora
+Startup busca desarrollador de software para crear aplicaciones de vanguardia. Se prefiere candidato masculino con habilidades avanzadas en programación
+Se busca desarrollador web, preferiblemente hombre, con experiencia en lenguajes de programación avanzados
+Se busca técnico en reparación de electrodomésticos, preferiblemente hombre, para realizar reparaciones a domicilio
+Se necesita recepcionista para hotel, preferiblemente mujer, con habilidades de atención al cliente y gestión de reservas
+Estudio de diseño busca diseñadora de modas, para crear prendas y colecciones únicas

@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .description .highlight{
+        .description .highlightEdad{
             background-color: blueviolet;
+        }
+        .description .highlightGenero{
+            background-color: rgb(43, 226, 104);
         }
     </style>
 </head>
@@ -16,8 +19,10 @@
     </h1>
         <p id="description" class="description" contenteditable="True">
             {% for palabra in offer.description.split %}
-                {% if palabra in genero %}
-                    <span class="highlight">{{ palabra }}</span>  
+                {% if palabra in edad %}
+                    <span class="highlightEdad">{{ palabra }}</span>  
+                {% elif palabra in genero %} 
+                    <span class="highlightGenero">{{ palabra }}</span>
                 {% else %}    
                     {{palabra}}
                 {% endif %}    

@@ -7,15 +7,6 @@ import ast
 import openai
 
 # Create your views here.
-'''def home(request):
-    #return HttpResponse('<h1>Hola</h1>')
-    return render(request, 'home.html')
-'''    
-def revision(request):
-    offers = Offer.objects.filter()
-
-    return render(request, 'revision.html', {'offers': offers})
-
 
 def oferta(request):
     if request.method == 'POST':
@@ -24,30 +15,22 @@ def oferta(request):
             offer = form.save(commit=False)
             offer.save()
             id = offer.id
-            discriminacion_type, palabras_genero, palabras_edad, palabras_discapacidad = analizar(id)
+            discriminacion_type, palabras_genero, palabras_edad = analizar(id)
             if len(discriminacion_type) == 0:
                 return redirect('revision')           
-            return redirect('editar',id,palabras_genero, palabras_edad, palabras_discapacidad)   
+            return redirect('editar',id,palabras_genero, palabras_edad)   
     else:
         form = OfferForm()
     return render(request, 'oferta.html', {'form': form})
 
 def analizar(id_offer):
     oferta = Offer.objects.get(pk=id_offer)
+    descripcion = oferta.description
     discrimination_type = []
-    palabras_genero = ['mujer','hombre','masculino','femenino','p']
-    palabras_edad = ['joven']
-    palabras_discapacidad = ['discapacidad']
-    genero = False
-    edad = False
-    discapacidad = False
-    '''
-    vector = vectorizacionDescripcion(id)
-    
-    genero, palabras_genero = genero(vector)
-    edad, palabras_edad = edad(vector)
-    discapacidad, palabras_discapacidad = discapacidad(vector)
-    '''
+
+    #genero,palabras_genero = discriminacionGenero(descripcion)
+    edad, palabras_edad = discriminacionEdad(descripcion)
+    genero, palabras_genero = discriminacionGenero(descripcion)
 
     if genero == False:
         oferta.discrimination.add(Discrimination.objects.get(pk=1))
@@ -55,21 +38,16 @@ def analizar(id_offer):
     if edad == False:
         oferta.discrimination.add(Discrimination.objects.get(pk=2))
         discrimination_type.append('2')
-    if discapacidad == False:
-        oferta.discrimination.add(Discrimination.objects.get(pk=3))
-        discrimination_type.append('3') 
-    return discrimination_type, palabras_genero, palabras_edad, palabras_discapacidad        
+    return discrimination_type, palabras_genero, palabras_edad       
             
 
 
-'''
-def editar(request, id_offer, discrimination ,palabras_genero,palabras_edad,palabras_discapacidad):
-'''
-def editar(request, id_offer,palabras_genero,palabras_edad,palabras_discapacidad):
+#def editar(request, id_offer, discrimination ,palabras_genero,palabras_edad,palabras_discapacidad):
+
+def editar(request, id_offer,palabras_genero,palabras_edad):
     oferta = Offer.objects.get(pk=id_offer)
     palabras_genero_list = ast.literal_eval(palabras_genero)
     palabras_edad_list = ast.literal_eval(palabras_edad)
-    palabras_discapacidad_list = ast.literal_eval(palabras_discapacidad)
 
 
     
@@ -103,9 +81,7 @@ def editar(request, id_offer,palabras_genero,palabras_edad,palabras_discapacidad
     context = {
         'offer': oferta,
         'genero': palabras_genero_list,
-        'edad': palabras_edad_list,
-        'discapacidad': palabras_discapacidad_list
-        
+        'edad': palabras_edad_list,    
     }
 
     return render(request, 'editar.html', context)
@@ -115,5 +91,13 @@ def inicioEmpresa(request):
 
 def empleos(request):
     return render(request, 'empleos.html')
+
+def revision(request):
+    offers = Offer.objects.filter()
+
+    return render(request, 'revision.html', {'offers': offers})
+
+def publicadas(request):
+    return render(request, 'publicadas.html')
 
 

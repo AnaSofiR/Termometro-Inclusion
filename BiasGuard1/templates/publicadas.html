@@ -3,7 +3,7 @@
     
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {% for offer in offers %}
-            {% if offer.state == False %}
+            {% if offer.state == True %}
                 <div class="max-w-sm mx-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="p-5">
                         <a href="{% url 'revision' %}">
