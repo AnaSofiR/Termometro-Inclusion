@@ -1,41 +1,101 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/editar2.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <scrip src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
-        .description .highlightEdad{
-            background-color: blueviolet;
+        .titulo-principal {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        body{
+            font-family: Mulish,sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
         }
         .description .highlightGenero{
-            background-color: rgb(43, 226, 104);
+            background-color: #ff0000;
+        }
+        .description .highlightEdad{
+            background-color: #f7d547;
         }
     </style>
 </head>
 <body>
-    <h1>
-        Descripción de la vacante:
-    </h1>
-        <p id="description" class="description" contenteditable="True">
-            {% for palabra in offer.description.split %}
-                {% if palabra in edad %}
-                    <span class="highlightEdad">{{ palabra }}</span>  
-                {% elif palabra in genero %} 
-                    <span class="highlightGenero">{{ palabra }}</span>
-                {% else %}    
-                    {{palabra}}
-                {% endif %}    
-            {% endfor %}     
-        </p>
+    <nav class="bg-blue-900 text-white">
+        <div class="flex flex-wrap justify-between items-center mx-auto max-w-full p-4">
+            <a class="flex items-center">
+                <img src="https://www.magneto365.com/wp-content/uploads/2023/06/magneto-b2b-white.svg" class="h-8 mr-3" alt="Magneto Logo" />
+            </a>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="oferta">
+            <h1>
+                {{ offer.title }}
+            </h1>
+            <h2>
+                <img src="{% static 'images/precaucion.png' %}" alt="">
+                Se han identificado ciertos aspectos en la descripción de su oferta laboral que podrían requerir atención adicional.
+            </h2>
+            <p id="description" class="description" contenteditable="True">
+                {% for palabra in offer.description.split %}
+                    {% if palabra in edad %}
+                        <span class="highlightEdad">{{ palabra }}</span>  
+                    {% elif palabra in genero %} 
+                        <span class="highlightGenero">{{ palabra }}</span>
+                    {% else %}    
+                        {{palabra}}
+                    {% endif %}    
+                {% endfor %}     
+            </p>  
+            <button class="generarSugerencia" onclick="sugerencia()">Generar sugerencia</button>  
+            <div class="sugerencia">
+                <p>{{ sugerencia }}</p>
+                <input type="hidden" class="descripcionSugerencia" value="{{sugerencia}}">
+                <button class="reemplazar" onclick="reemplazar()">Reemplazar mi oferta por esta</button>
+            </div>
+        </div>
+        <div class="discriminacion">
+            <div class="genero">
+                <div class="circuloGenero">
+                    <span class="valorGenero">0%</span>
+                </div>
+                <button class="text" onclick="recomendacionGenero()">GÉNERO</button>
+                <input type="hidden" class="numeroValorGenero" value= {{porcentaje_genero}} >
+                <div class="recomendacionGenero">
+                    <p>1. Lenguaje inclusivo:
 
-        <p>
-            {{ offer.title }}
-        </p>
+                        En lugar de decir: "Buscamos un candidato fuerte y decidido para el puesto", puedes decir: "Buscamos un candidato/a con habilidades fuertes y determinación para el puesto".
+                        Evita términos como "trabajador duro" o "hombre de familia" que puedan tener connotaciones de género. En su lugar, utiliza descripciones neutras como "persona dedicada" o "persona con responsabilidades familiares".</p>
+                </div>
+            </div>
+            <div class="edad">
+                <div class="circuloEdad">
+                    <span class="valorEdad">0%</span>
+                </div>
+                <button class="text" onclick="recomendacionEdad()">EDAD</button>
+                <input type="hidden" class="numeroValorEdad" value="{{ porcentaje_edad }}">
+                <div class="recomendacionEdad">
+                    <p>1. Lenguaje inclusivo:
 
-        <p>
-            {{ offer.salary }}
-        </p>
-        
+                        En lugar de decir: "Buscamos un candidato fuerte y decidido para el puesto", puedes decir: "Buscamos un candidato/a con habilidades fuertes y determinación para el puesto".
+                        Evita términos como "trabajador duro" o "hombre de familia" que puedan tener connotaciones de género. En su lugar, utiliza descripciones neutras como "persona dedicada" o "persona con responsabilidades familiares".</p>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <script src="{% static 'js/editar.js' %}"></script>
 </body>
 </html>

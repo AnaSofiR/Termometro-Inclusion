@@ -1,0 +1,185 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Mulish,sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    justify-content: center;
+
+}
+.content{
+    display: flex;
+}
+.oferta{
+    width: 600px;
+    margin-left: 50px;
+    margin-top: 30px;
+    justify-content: center;
+}
+.oferta h1{
+    font-size: 30px;
+    color: #23175C;
+}
+.oferta h2{
+    margin-top: 30px;
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    color: #23175C;
+}
+.oferta h2 img{
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+}
+.oferta .description{
+    box-shadow: 0 0 20px rgb(0, 0, 0.2);
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    width: 530px;
+    margin-top: 50px;
+    margin-left: 35px;
+}
+.oferta .generarSugerencia{
+    border-radius: 25px;
+    padding: 10px;
+    margin-left: 35px;
+    margin-top: 20px;
+    background-color: rgb(51,167,181);
+    visibility: visible;
+}
+.oferta button:hover{
+    background-color: #ff6900;
+}
+.oferta .sugerencia{
+    visibility: hidden;
+    height: 200px;
+    margin-top: 30px;
+}
+.oferta .sugerencia p{
+    height: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-left: 35px;
+    width: 530px;
+}
+.oferta .sugerencia .reemplazar{
+    border-radius: 25px;
+    padding: 10px;
+    margin-left: 35px;
+    margin-top: 10px;
+    background-color: rgb(51,167,181);
+    visibility: hidden;
+    margin-bottom: 30px;
+}
+.oferta .sugerencia .reemplazar:hover{
+    background-color: #ff6900;
+}
+.discriminacion{
+    margin-left: 0px;
+    display: flex;
+    width: 500px;
+}
+.genero{
+    margin-left: 30px;
+    margin-right: 50px;
+    row-gap: 30px;
+    flex-direction: column;
+    padding: 50px 0;
+} 
+.edad{
+    margin-right: 50px;
+    row-gap: 30px;
+    padding: 50px 0;
+    flex-direction: column;
+} 
+.circuloGenero{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background: conic-gradient(#ff0000 3.6deg, #d3d3d3 0deg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 75px;
+}   
+.circuloGenero::before{
+    content: "";
+    position: absolute;
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    background-color: white;
+
+}
+.valorGenero{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ff0000;
+}
+.discriminacion .recomendacionGenero{
+    visibility: hidden;
+}
+.discriminacion .recomendacionGenero p{
+    width: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+.circuloEdad{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background: conic-gradient(#ecab0f 3.6deg, #d3d3d3 0deg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 60px;
+}   
+.circuloEdad::before{
+    content: "";
+    position: absolute;
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    background-color: white;
+
+}
+.valorEdad{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ecab0f;
+}
+.discriminacion .recomendacionEdad{
+    visibility: hidden;
+}
+.discriminacion .recomendacionEdad p{
+    width: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+.genero button{
+    background-color: #ff0000;
+    margin-top: 15px;
+    margin-left: 90px;
+    margin-bottom: 30px;
+}
+.edad button{
+    background-color: #ecab0f;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    margin-left: 90px;
+}
+.text{
+    box-shadow: 0 0 20px rgb(0, 0, 0.2);
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 25px;
+    padding: .3rem 1rem;
+}

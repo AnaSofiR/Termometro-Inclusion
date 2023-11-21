@@ -46,42 +46,21 @@ def analizar(id_offer):
 
 def editar(request, id_offer,palabras_genero,palabras_edad):
     oferta = Offer.objects.get(pk=id_offer)
+    descripcion = oferta.description
+    descripcion_arr = descripcion.split()
     palabras_genero_list = ast.literal_eval(palabras_genero)
     palabras_edad_list = ast.literal_eval(palabras_edad)
-
-
-    
-    '''
-    recomendation = discrimination.recomendation
-    recomendation_text = recomendation.description
-    offer_description = offer.description
-    for palabra in palabras_genero:
-        offer_description = offer_description.replace(palabra, f'<span style="text-decoration: underline; color: #fdfd96;">{palabra}</span>')
-
-    for palabra in palabras_edad:
-        offer_description = offer_description.replace(palabra, f'<span style="text-decoration: underline; color: #03bb85;">{palabra}</span>')
-
-    for palabra in palabras_discapacidad:
-        offer_description = offer_description.replace(palabra, f'<span style="text-decoration: underline; color: #a349a4 ;">{palabra}</span>')        
-
-    modified_offer = offer.objects.create(
-        title = offer.title,  
-        description = offer_description,
-        salary = offer.salary, 
-        education_level = offer.education_level,
-        city = offer.city
-    )
-
-    context = {
-        'offer': modified_offer,
-        'recomendation': recomendation_text
-    }
-
-'''    
+    porcentajeGenero = int((len(palabras_genero_list)*300)/len(descripcion_arr))
+    porcentajeEdad = int((len(palabras_edad_list)*300)/len(descripcion_arr))
+    sugerencia = "Te sugerio tuki"
+ 
     context = {
         'offer': oferta,
         'genero': palabras_genero_list,
-        'edad': palabras_edad_list,    
+        'edad': palabras_edad_list,  
+        'porcentaje_genero': porcentajeGenero,
+        'porcentaje_edad': porcentajeEdad,  
+        'sugerencia': sugerencia,
     }
 
     return render(request, 'editar.html', context)
