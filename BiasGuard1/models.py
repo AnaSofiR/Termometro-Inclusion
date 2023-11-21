@@ -1,5 +1,6 @@
 from django.db import models
 from analitica.models import *
+from django.db.models import Avg
 
 # Create your models here.        
 
@@ -16,11 +17,6 @@ class Discrimination(models.Model):
     def __str__(self):
         return self.type
 
-class Qualification(models.Model):
-    id = models.AutoField(primary_key=True, editable=False, unique=True)
-    qualification_number = models.CharField(max_length=1, blank=False, null=False)
-    candidate = models.ForeignKey(Candidates, on_delete=models.CASCADE) 
-
 
 class Offer(models.Model):
     id = models.AutoField(primary_key=True, editable=False, unique=True)
@@ -30,12 +26,26 @@ class Offer(models.Model):
     salary = models.FloatField(blank=False, null=False)
     city = models.CharField(blank=False, null=False, max_length=45)
     discrimination = models.ManyToManyField(Discrimination)
-    qualification = models.ForeignKey(Qualification, on_delete=models.CASCADE, null=True)
     state = models.BooleanField(default=False)
     company = models.ForeignKey(Companies, on_delete=models.CASCADE, null=True)
 
+    def average_rating(self) -> float:
+        return Rating.objects.filter(offer=self).aggregate(Avg("rating"))["rating__avg"] or 0
+
     def __str__(self):
-        return self.title   
+        return f"{self.title}: {self.average_rating()}"
+
+    
+
+class Rating(models.Model):
+    candidate = models.ForeignKey(Candidates, on_delete=models.CASCADE)
+    offer = models.ForeignKey(Offer, on_delete=models.CASCADE)
+    rating = models.IntegerField(default=0)  
+
+    def __str__(self):
+        return f"{self.offer.title}: {self.rating}"     
+
+    
  
 class NewOffer(models.Model):
     id = models.AutoField(primary_key=True, editable=False, unique=True)

@@ -13,11 +13,13 @@ def oferta(request):
         form = OfferForm(request.POST)
         if form.is_valid():
             offer = form.save(commit=False)
+            id_empresa = request.user.companies.id
+            offer.company = Companies.objects.get(pk=id_empresa)
             offer.save()
             id = offer.id
             discriminacion_type, palabras_genero, palabras_edad = analizar(id)
             if len(discriminacion_type) == 0:
-                return redirect('revision')           
+                return redirect('revision', id_empresa)           
             return redirect('editar',id,palabras_genero, palabras_edad)   
     else:
         form = OfferForm()
@@ -71,8 +73,9 @@ def inicioEmpresa(request):
 def empleos(request):
     return render(request, 'empleos.html')
 
-def revision(request):
-    offers = Offer.objects.filter()
+def revision(request, id_empresa):
+    empresa = id_empresa
+    offers = Offer.objects.filter(company = empresa)
 
     return render(request, 'revision.html', {'offers': offers})
 

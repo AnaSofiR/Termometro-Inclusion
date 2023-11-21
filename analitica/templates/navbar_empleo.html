@@ -26,24 +26,15 @@
     <nav class="bg-blue-900 text-white">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-full p-4">
             <a href="#" class="flex items-center">
-                <img src="https://www.magneto365.com/wp-content/uploads/2023/06/magneto-b2b-white.svg" class="h-8 mr-3" alt="Magneto Logo" />
+                <img src="https://static.magneto365.com/lib/assets/cef805bdf449b93b.svg" class="h-8 mr-3" alt="Magneto Logo" />
             </a>
             <div class="flex items-center">
                 <ul class="flex flex-row font-medium mt-0 mr-6 space-x-8 text-sm">
                     <li>
-                        <a href="{% url 'inicioEmpresa' %}" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Inicio</a>
+                        <a href="#" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Inicio</a>
                     </li>
                     <li>
-                        <a href="{% url 'oferta' %}" class="text-gray-900 dark:text-white hover:underline">Crear oferta</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'revision' id_empresa=request.user.companies.id %}" class="text-gray-900 dark:text-white hover:underline">En revisión</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'publicadas' %}" class="text-gray-900 dark:text-white hover:underline">Publicadas</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-900 dark:text-white hover:underline">Análisis</a>
+                        <a href="{% url 'inicioEmpleo' %}" class="text-gray-900 dark:text-white hover:underline">Empleos disponibles</a>
                     </li>
                 </ul>
             </div>

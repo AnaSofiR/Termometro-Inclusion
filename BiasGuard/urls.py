@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #path('',biasguardViews.home),
     path('oferta/', biasguardViews.oferta, name='oferta'),
-    path('revision/', biasguardViews.revision, name='revision'),
+    path('revision/<int:id_empresa>/', biasguardViews.revision, name='revision'),
     path('analitica/', include('analitica.urls')),
     path('editar/<int:id_offer>/<str:palabras_genero>/<str:palabras_edad>/', biasguardViews.editar, name='editar'),
     path('', include('analitica.urls')),

@@ -9,8 +9,8 @@ class Companies(models.Model):
     email = models.EmailField(null=True)
     name = models.CharField(max_length=150, blank=False, null=False) 
 
-    #def __str__(self):
-    #    return str(self.username)
+    def __str__(self):
+       return str(self.username)
 
 class Candidates(models.Model):
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
@@ -18,7 +18,10 @@ class Candidates(models.Model):
     email = models.EmailField(null=True)
     name = models.CharField(max_length=150, blank=False, null=False)
 
-    #def __str__(self):
-    #    return str(self.username)
+    def __str__(self):
+        return str(self.username)
+    
+
+   
 
 
