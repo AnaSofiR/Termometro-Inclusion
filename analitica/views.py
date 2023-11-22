@@ -44,9 +44,7 @@ def inicio(request):
 
 
 def inicioEmpleo(request):
-    offers = Offer.objects.filter()
-
-    return render(request, 'inicioEmpleo.html', {'offers': offers})
+    return render(request, 'inicioEmpleo.html')
 
 def ofertaRating(request, offer_id):
     offer = Offer.objects.get(pk=offer_id)
@@ -59,3 +57,8 @@ def rating(request: HttpRequest, offer_id: int, rating: int) -> HttpResponse:
     Rating.objects.filter(offer=offer, candidate=request.user.candidates).delete()
     offer.rating_set.create(candidate=request.user.candidates, rating=rating)
     return ofertaRating(request, offer_id)
+
+def empleos(request):
+    offers = Offer.objects.filter()
+
+    return render(request, 'inicioEmpleo.html', {'offers': offers})

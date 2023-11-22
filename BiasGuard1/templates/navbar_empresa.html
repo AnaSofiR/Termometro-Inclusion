@@ -7,15 +7,69 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
-        .titulo-principal {
-            font-size: 2.5rem;
-            font-weight: bold;
-            text-align: center;
-            margin: 2rem 0;
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family:Mulish,sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    
         }
-        body{
-            font-family: Mulish,sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+        .header{
+            background-color: #23175C;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 85px;
+            padding: 5px 5%;
         }
+        .header .logo{
+            cursor: pointer;
+        }
+        .header .logo img{
+            height: 50px;
+            width: auto;
+        }
+        .header .nav-links{
+            list-style: none;
+
+        }
+        .header .nav-links li{
+            display: inline-block;
+            padding: 0 20px;
+            cursor: pointer;
+        }
+        .header .nav-links li:hover{
+            transform: scale(1.1);
+        }
+        .header .nav-links a{
+            font-size: 700;
+            color: white;
+            text-decoration: none;
+        }
+        .header .nav-links a:hover{
+            text-decoration: overline;
+            color: #ff6900;
+        }
+        .header .btn button{
+            display: flex;
+            font-weight: 700;
+            color: #23175C;
+            padding: 9px 25px;
+            background-color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+        }
+        .header .btn button:hover{
+            background-color: white;
+            color: #ff6900;
+            transform: scale(1.1);
+        }
+        .header .btn button img{
+            margin-left: 10px;
+        }
+ 
 
     </style>
     <meta charset="UTF-8">
@@ -23,51 +77,27 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="bg-blue-900 text-white">
-        <div class="flex flex-wrap justify-between items-center mx-auto max-w-full p-4">
-            <a href="#" class="flex items-center">
-                <img src="https://www.magneto365.com/wp-content/uploads/2023/06/magneto-b2b-white.svg" class="h-8 mr-3" alt="Magneto Logo" />
-            </a>
-            <div class="flex items-center">
-                <ul class="flex flex-row font-medium mt-0 mr-6 space-x-8 text-sm">
-                    <li>
-                        <a href="{% url 'inicioEmpresa' %}" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Inicio</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'oferta' %}" class="text-gray-900 dark:text-white hover:underline">Crear oferta</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'revision' id_empresa=request.user.companies.id %}" class="text-gray-900 dark:text-white hover:underline">En revisión</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'publicadas' %}" class="text-gray-900 dark:text-white hover:underline">Publicadas</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-900 dark:text-white hover:underline">Análisis</a>
-                    </li>
-                </ul>
-            </div>
-            
-        <!-- Breadcrumb -->
-        <nav class="flex justify-between" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center mb-3 sm:mb-0">
-                <div class="flex items-center">
-                    <button id="dropdownDatabase" data-dropdown-toggle="dropdown-database" class="inline-flex items-center px-3 py-2 text-sm font-normal text-center text-white bg-blue-900 rounded-lg hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-100 dark:bg-gray-900 dark:hover:bg-gray-800 dark:text-white dark:focus:ring-gray-700">
-            </svg>Cuenta<svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-            </svg></button>
-                <div id="dropdown-database" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-                    <li>
-                        <a href="{% url 'inicio' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Salir</a>
-                    </li>
-                    </ul>
-                </div>
-                </div>
-            </li>
-            </ol>
-        </nav>  
+    <header class="header">
+        <div class="logo">
+            <img src="https://www.magneto365.com/wp-content/uploads/2023/06/magneto-b2b-white.svg" alt="">
         </div>
-    </nav>
+        <nav>
+            <ul class="nav-links">
+                <li >
+                    <a href="{% url 'inicioEmpresa' %}">Inicio</a>
+                </li>
+                <li><a href="{% url 'oferta' %}">Crear oferta</a></li>
+                <li><a href="{% url 'revision' id_empresa=request.user.companies.id %}">En revisión</a></li>
+                <li><a href="{% url 'publicadas' %}">Publicadas</a></li>
+                <li><a href="#">Mi análisis</a></li>
+            </ul>
+        </nav>
+        <a href="{% url 'inicio' %}" class="btn">
+            <button>
+                Salir
+                <img src="https://www.magneto365.com/wp-content/uploads/2022/07/login.svg" alt="">
+            </button>
+        </a>
+    </header>
 </body>
 </html>
