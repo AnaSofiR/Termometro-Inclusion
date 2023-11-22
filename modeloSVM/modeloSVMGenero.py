@@ -5,10 +5,13 @@ from nltk.corpus import stopwords
 from nltk.tokenize import TweetTokenizer
 import string
 import re
-nltk.download('stopwords')
+
+try:
+    stopwords.words('spanish')
+except LookupError:
+    nltk.download('stopwords')
 
 import numpy as np
-
 # -- BIBLIOTECAS RELACIONADAS CON SVM
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score

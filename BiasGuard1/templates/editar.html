@@ -36,6 +36,13 @@
                 <img src="https://www.magneto365.com/wp-content/uploads/2023/06/magneto-b2b-white.svg" class="h-8 mr-3" alt="Magneto Logo" />
             </a>
         </div>
+        <div class="formulario">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <input type="hidden" class="descripcionSugerencia" name="descripcion_sugerencia" value="{{sugerencia}}">
+                <input class="btn" type="submit" value="Guardar">
+            </form>    
+        </div> 
     </nav>
     <div class="content">
         <div class="oferta">
@@ -69,7 +76,7 @@
                 <div class="circuloGenero">
                     <span class="valorGenero">0%</span>
                 </div>
-                <button class="text" onclick="recomendacionGenero()">GÉNERO</button>
+                <button class="text" onclick="recomendacionGenero()">EDAD</button>
                 <input type="hidden" class="numeroValorGenero" value= {{porcentaje_genero}} >
                 <div class="recomendacionGenero">
                     <p>1. Lenguaje inclusivo:
@@ -82,7 +89,7 @@
                 <div class="circuloEdad">
                     <span class="valorEdad">0%</span>
                 </div>
-                <button class="text" onclick="recomendacionEdad()">EDAD</button>
+                <button class="text" onclick="recomendacionEdad()">GÉNERO</button>
                 <input type="hidden" class="numeroValorEdad" value="{{ porcentaje_edad }}">
                 <div class="recomendacionEdad">
                     <p>1. Lenguaje inclusivo:

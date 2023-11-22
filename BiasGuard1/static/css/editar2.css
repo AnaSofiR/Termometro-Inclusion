@@ -5,6 +5,25 @@ body{
     justify-content: center;
 
 }
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding: 5px 5%;
+    margin-bottom: 30px;
+}
+nav .formulario .btn{
+    display: flex;
+    font-weight: 700;
+    color: #23175C;
+    padding: 9px 25px;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
 .content{
     display: flex;
 }

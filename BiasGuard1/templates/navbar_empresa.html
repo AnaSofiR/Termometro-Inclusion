@@ -21,6 +21,7 @@
             align-items: center;
             height: 85px;
             padding: 5px 5%;
+            margin-bottom: 30px;
         }
         .header .logo{
             cursor: pointer;
@@ -88,8 +89,8 @@
                 </li>
                 <li><a href="{% url 'oferta' %}">Crear oferta</a></li>
                 <li><a href="{% url 'revision' id_empresa=request.user.companies.id %}">En revisión</a></li>
-                <li><a href="{% url 'publicadas' %}">Publicadas</a></li>
-                <li><a href="#">Mi análisis</a></li>
+                <li><a href="{% url 'publicadas' id_empresa=request.user.companies.id %}">Publicadas</a></li>
+                <li><a href="{% url 'analisisEmpresa' id_empresa=request.user.companies.id %}">Mi empresa</a></li>
             </ul>
         </nav>
         <a href="{% url 'inicio' %}" class="btn">

@@ -61,4 +61,27 @@ def rating(request: HttpRequest, offer_id: int, rating: int) -> HttpResponse:
 def empleos(request):
     offers = Offer.objects.filter()
 
-    return render(request, 'inicioEmpleo.html', {'offers': offers})
+    return render(request, 'empleos.html', {'offers': offers})
+
+def analisisEmpresa(request,id_empresa):
+    offers = Offer.objects.filter(company=id_empresa)
+    ratings = []
+    candidatesRatings = []
+    for offer in offers:
+        candidatesRating = Rating.objects.filter(offer=offer)
+        for c in candidatesRating:
+            ratingC = c.rating
+            print(ratingC)
+        rating = offer.average_rating()
+        print(rating)
+        ratings.append(rating)
+
+    calification = 0
+    for rating in ratings:
+        calification += rating    
+
+    calification = calification/len(ratings)
+    print(calification)
+
+
+    return render(request, 'analisisEmpresa.html', {'calification': calification})

@@ -1,0 +1,47 @@
+{% include 'navbar_empresa.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Mulish,sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center; 
+
+        }
+        .empresa{
+            margin-left: 250px;
+            padding: 50px 55px;
+            box-shadow: 0 0 20px rgb(0, 0, 0.2);
+            border-radius: 20px;
+            text-align: center;
+            width: 900px;
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+        .checked {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="empresa">
+        <h1><strong>Nombre:</strong> {{ request.user.companies }}</h1>
+        <h2><strong>Correo electrónico:</strong> {{ request.user.companies.email }}</h2>
+        <h2><strong>Tu calificación:</strong> {{ calification }}
+            <span class="fa fa-star {% if offer.average_rating > 0 %} checked {% endif %}"></span>
+                <span class="fa fa-star {% if offer.average_rating > 1 %} checked {% endif %}"></span>
+                <span class="fa fa-star {% if offer.average_rating > 2 %} checked {% endif %}"></span>
+                <span class="fa fa-star {% if offer.average_rating > 3 %} checked {% endif %}" ></span>
+                <span class="fa fa-star {% if offer.average_rating > 4 %} checked {% endif %}"></span>
+        </h2>
+        <h2></h2>
+    </div>
+    
+
+</body>
+</html>

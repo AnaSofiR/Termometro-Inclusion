@@ -1,98 +1,133 @@
 from .views import *
 from .models import Offer
+import numpy as np
 # -- MANEJO DE LENGUAJE NATURAL --
 import nltk
-from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
 from nltk.tokenize import TweetTokenizer
 import string
 import re
-nltk.download('stopwords')
-
+from abc import ABC, abstractmethod
 import joblib
-modeloEdad = joblib.load('modeloSVM/modeloSVMEdad.pkl')
-modeloGenero = joblib.load('modeloSVM/modeloSVMGenero.pkl')
+try:
+    stopwords.words('spanish')
+except LookupError:
+    nltk.download('stopwords')
+
+class ProcesadorTexto(ABC): #Interfaz del procesador de ofertas
+    @abstractmethod
+    def procesa_oferta(self, oferta):
+        pass
+
+    @abstractmethod
+    def genera_caracteristicas(self, oferta, freqs):
+        pass
+
+class ProcesadorLenguajeNatural(ProcesadorTexto):
+    def procesa_oferta(self, oferta):
+        '''
+        Limpiamos la oferta con información importante para entrenar los modelos
+            input: oferta
+            output: oferta limpia
+        '''
+        stopwords_spanish = stopwords.words('spanish')
+        #Elimina puntuación
+        oferta = re.sub(r'[^\w\s]', '', oferta)
+        # tokenize oferta
+        tokenizer = TweetTokenizer(preserve_case=False)
+        oferta_tokens = tokenizer.tokenize(oferta)
+
+        oferta_clean = []
+
+        for word in oferta_tokens:
+            if word not in stopwords_spanish and word not in string.punctuation:
+                oferta_clean.append(word)
+
+        return oferta_clean
+    
+    def genera_caracteristicas(self, oferta, freqs):
+        '''
+        Input:
+            oferta: descripción de la oferta
+            freqs: diccionario de frecuencias
+        Output:
+            x: a feature vector of dimension (1,3)
+        '''
+        # Procesamos las ofertas
+        word_l = self.procesa_oferta(oferta)
+
+        # una lista con 2 elementos
+        x = [0, 0]
+
+        # Para cada palabra en la lista de palabras tokenizadas
+        for word in word_l:
+            # El primer componente es la suma de las veces que aparece esa palabra en ofertas adecuadas
+            x[0] += freqs.get((word, 1), 0)
+
+            # El segundo componente es la suma de las veces que aparece esa palabra en ofertas discriminatorias
+            x[1] += freqs.get((word, 0), 0)
+        return x
+    
 
 
-
-def procesa_oferta(oferta):
-    '''
-    Limpiamos la oferta con información importante para entrenar los modelos
-        input: oferta
-        output: oferta limpia
-    '''
-    stopwords_spanish = stopwords.words('spanish')
-    #Elimina puntuación
-    oferta = re.sub(r'[^\w\s]', '', oferta)
-    # tokenize oferta
-    tokenizer = TweetTokenizer(preserve_case=False)
-    oferta_tokens = tokenizer.tokenize(oferta)
-
-    oferta_clean = []
-
-    for word in oferta_tokens:
-        if word not in stopwords_spanish and word not in string.punctuation:
-            oferta_clean.append(word)
-
-    return oferta_clean
-
-def genera_caracteristicas(oferta, freqs):
-    '''
-    Input:
-        oferta: descripción de la oferta
-        freqs: diccionario de frecuencias
-    Output:
-        x: a feature vector of dimension (1,3)
-    '''
-    # Procesamos los tweets
-    word_l = procesa_oferta(oferta)
-
-    # una lista con 2 elementos
-    x = [0, 0]
-
-    # Para cada palabra en la lista de palabras tokenizadas
-    for word in word_l:
-        # El primer componente es la suma de las veces que aparece esa palabra en ofertas adecuadas
-        x[0] += freqs.get((word, 1), 0)
-
-        # El segundo componente es la suma de las veces que aparece esa palabra en ofertas discriminatorias
-        x[1] += freqs.get((word, 0), 0)
-    return x
+class BaseModel(ABC): #Interfaz de los modelos SVM
+    @abstractmethod
+    def predict(self, description):
+        pass
 
 
+class ModeloSVM(BaseModel): #De esta clase ModeloSVM heredarán otras clases en específico
+    def __init__(self, model_path):
+        self.model = joblib.load(model_path)
+
+    def predict(self, description):
+        return self.model.predict(description) 
 
 
-def discriminacionGenero(description):
-    oferta = genera_caracteristicas(description,frecuencias_genero)
-    texto_ofensivo = modeloGenero.predict([oferta])
-    palabras_discriminatorias = ['hombre','mujer','femenino','femenina','masculino','masculina','enfermera','limpiadora']
-    palabras_encontradas = []
-    print(texto_ofensivo[0])
-    if texto_ofensivo[0]==False:
-        palabras_texto = procesa_oferta(description)
-        for palabra in palabras_discriminatorias:
-            # Verificar si la palabra está en el texto
-            if palabra in palabras_texto:
-                palabras_encontradas.append(palabra)       
+class ModeloSVMGenero(ModeloSVM):
+    def __init__(self, procesador: ProcesadorTexto):
+        self.procesador = procesador
+        super().__init__('modeloSVM/modeloSVMGenero.pkl')
 
-    return bool(texto_ofensivo[0]),palabras_encontradas
+    def discriminacionGenero(self, description):
+        description_procesada = self.procesador.genera_caracteristicas(description, frecuencias_genero)
+        description_procesada_array = np.array(description_procesada)
+        description_procesada_reshaped = description_procesada_array.reshape(1, -1)
+        texto_ofensivo = self.predict(description_procesada_reshaped)
+        palabras_discriminatorias = ['hombre', 'mujer', 'femenino', 'femenina', 'masculino', 'masculina', 'enfermera', 'limpiadora']
+        palabras_encontradas = []
+
+        if not texto_ofensivo[0]:
+            palabras_texto = self.procesador.procesa_oferta(description)
+            for palabra in palabras_discriminatorias:
+                # Verificar si la palabra está en el texto
+                if palabra in palabras_texto:
+                    palabras_encontradas.append(palabra)
+
+        return bool(texto_ofensivo[0]), palabras_encontradas
 
 
+class ModeloSVMEdad(ModeloSVM):
+    def __init__(self, procesador : ProcesadorTexto):
+        self.procesador = procesador
+        super().__init__('modeloSVM/modeloSVMEdad.pkl')    
 
-def discriminacionEdad(description):
-    oferta = genera_caracteristicas(description,frecuencias_edad)
-    texto_ofensivo = modeloEdad.predict([oferta])
-    palabras_discriminatorias = ['años','joven','recién','graduado','juvenil','estudiante','graduada','30','menor']
-    palabras_encontradas = []
-    print(texto_ofensivo[0])
-    if texto_ofensivo[0]==False:
-        palabras_texto = procesa_oferta(description)
-        for palabra in palabras_discriminatorias:
-            # Verificar si la palabra está en el texto
-            if palabra in palabras_texto:
-                palabras_encontradas.append(palabra)       
+    def discriminacionEdad(self, description):
+        description_procesada = self.procesador.genera_caracteristicas(description, frecuencias_edad)
+        description_procesada_array = np.array(description_procesada)
+        description_procesada_reshaped = description_procesada_array.reshape(1, -1)
+        texto_ofensivo = self.predict(description_procesada_reshaped)
+        palabras_discriminatorias = ['años','joven','recién','graduado','juvenil','estudiante','graduada','30','menor']
+        palabras_encontradas = []
 
-    return bool(texto_ofensivo[0]),palabras_encontradas
+        if not texto_ofensivo[0]:
+            palabras_texto = self.procesador.procesa_oferta(description)
+            for palabra in palabras_discriminatorias:
+                # Verificar si la palabra está en el texto
+                if palabra in palabras_texto:
+                    palabras_encontradas.append(palabra)
+
+        return bool(texto_ofensivo[0]), palabras_encontradas    
 
 
 

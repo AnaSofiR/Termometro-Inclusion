@@ -5,10 +5,10 @@ let circuloGenero = document.querySelector(".circuloGenero"),
     numeroGenero = document.querySelector(".numeroValorGenero"),
     numeroEdad = document.querySelector(".numeroValorEdad");
 
-let valorInicialGenero = 0,
+let valorInicialGenero = -1,
     valorFinalGenero = numeroGenero.value;
     
-let valorInicialEdad = 0,
+let valorInicialEdad = -1,
     valorFinalEdad = numeroEdad.value;
 
 let speed = 100;
@@ -19,8 +19,10 @@ let progresoGenero = setInterval(() => {
 
     valorGenero.textContent = `${valorInicialGenero}%`
     circuloGenero.style.background = `conic-gradient(#ff0000 ${valorInicialGenero * 3.6}deg, #d3d3d3 0deg)`
+    
 
-    if(valorInicialGenero == valorFinalGenero){
+    if(valorInicialGenero == valorFinalGenero || valorInicialGenero >= 100){
+        console.log(valorFinalEdad)
         clearInterval(progresoGenero);
     }
 }, speed)
